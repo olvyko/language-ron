@@ -1,12 +1,12 @@
 {
   "name": "language-ron",
   "version": "0.0.0",
-  "description": "A short description of your language package",
+  "description": "language-ron is a RON grammar package for Atom.",
   "keywords": [
     "language",
     "grammar"
   ],
-  "repository": "https://github.com/atom/language-ron",
+  "repository": "https://github.com/olvyko/language-ron.git",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
