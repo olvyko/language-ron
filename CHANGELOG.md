@@ -1,3 +1,4 @@
 ## 0.1.0 - First Release
-* Every feature added
-* Every bug fixed
+* Add RON grammar
+* Add basic settings
+* Changed README file

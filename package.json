@@ -1,7 +1,7 @@
 {
   "name": "language-ron",
-  "version": "0.0.0",
-  "description": "language-ron is a RON grammar package for Atom.",
+  "version": "0.1.0",
+  "description": "Atom language support for RON",
   "keywords": [
     "language",
     "grammar"

@@ -1,14 +1,118 @@
-# If this is your first time writing a language grammar, check out:
-#   - https://flight-manual.atom.io/hacking-atom/sections/creating-a-grammar/
 
-'scopeName': 'source.ron'
-'name': 'Ron'
+'scopeName': 'source.ron',
+'name': 'RON'
 'fileTypes': [
-  'extension'
-]
+  'ron'
+],
 'patterns': [
-  {
-    'match': '^\\s*@@.*$'
-    'name': 'comment'
+  { 'include': '#expression' }
+],
+'repository': {
+  'expression': {
+    'patterns': [
+      { 'include': '#array' },
+      { 'include': '#block_comment' },
+      { 'include': '#constant' },
+      { 'include': '#dictionary' },
+      { 'include': '#line_comment' },
+      { 'include': '#number' },
+      { 'include': '#object-name' },
+      { 'include': '#object' },
+      { 'include': '#string' },
+      { 'include': '#tag-name' }
+    ]
+  },
+  'array': {
+    'begin': '\\[',
+    'end': '\\]',
+    'beginCaptures': {
+      '0': { 'name': 'punctuation.section.array.begin.ron' }
+    },
+    'endCaptures': {
+      '0': { 'name': 'punctuation.section.array.end.ron' }
+    },
+
+    'patterns': [
+      { 'meta_scope': 'meta.structure.array.ron' },
+      { 'include': '#value' }
+    ]
+  },
+  'block_comment': {
+    'name': 'punctuation.definition.comment.ron',
+    'begin': '/\\*\\*(?!/)',
+    'end': '\\*/'
+  },
+  'constant': {
+    'match': '\\b(true|false)\\b',
+    'name': 'constant.language.ron'
+  },
+  'dictionary': {
+    'begin': '\\{',
+    'end': '\\}',
+    'beginCaptures': {
+      '0': { 'name': 'punctuation.section.dictionary.begin.ron' }
+    },
+    'endCaptures': {
+      '0': { 'name': 'punctuation.section.dictionary.end.ron' }
+    },
+    'patterns': [
+      { 'include': '#value' },
+      { 'include': '#object-name' },
+      { 'include': '#object' },
+      { 'include': '#tag-name' },
+      { 'match': ',', 'name': 'punctuation.separator.dictionary.ron' },
+      { 'match': ':', 'name': 'punctuation.separator.dictionary.key-value.ron' }
+    ]
+  },
+  'line_comment': {
+    'name': 'comment.line.double-slash.ron',
+    'begin': '//',
+    'end': '$'
+  },
+  'tag-name': {
+    'match': '[a-z_][A-Za-z_0-9]*',
+    'name': 'entity.name.tag.ron'
+  },
+  'object-name': {
+    'match': '[A-Za-z_][A-Za-z_0-9]*',
+    'name': 'entity.name.class.ron'
+  },
+  'object': {
+    'begin': '\\(',
+    'end': '\\)',
+    'beginCaptures': {
+      '0': { 'name': 'punctuation.section.dictionary.begin.ron' }
+    },
+    'endCaptures': {
+      '0': { 'name': 'punctuation.section.dictionary.end.ron' }
+    },
+    'patterns': [
+      { 'include': '#value' },
+      { 'include': '#dictionary' },
+      { 'include': '#tag-name' },
+      { 'include': '#object-name' },
+      { 'include': '#object' }
+    ]
+  },
+  'number': {
+    'match': '(?x:         # turn on extended mode\n  -?         # an optional minus\n  (?:\n    0        # a zero\n    |        # ...or...\n    [1-9]    # a 1-9 character\n    \\d*      # followed by zero or more digits\n  )\n  (?:\n    (?:\n      \\.     # a period\n      \\d+    # followed by one or more digits\n    )?\n    (?:\n      [eE]   # an e character\n      [+-]?  # followed by an option +/-\n      \\d+    # followed by one or more digits\n    )?       # make exponent optional\n  )?         # make decimal portion optional\n)',
+    'name': 'constant.numeric.ron'
+  },
+  'string': {
+    'begin': '\'',
+    'end': '\'',
+    'name': 'string.quoted.double'
+  },
+  'value': {
+    'patterns': [
+      { 'include': '#array' },
+      { 'include': '#block_comment' },
+      { 'include': '#constant' },
+      { 'include': '#dictionary' },
+      { 'include': '#line_comment' },
+      { 'include': '#number' },
+      { 'include': '#object' },
+      { 'include': '#string' }
+    ]
   }
-]
+}
