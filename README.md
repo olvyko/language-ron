@@ -8,3 +8,7 @@ Adds syntax highlighting and snippets to RON files in Atom.
 readable data serialization format that looks similar to Rust syntax,
 designed to support all of Serde's data model. Check out the RON repository
 for more information!
+
+## Highlighting Example
+
+![Syntax highlighting example](docs/ron-example.png)
