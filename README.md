@@ -1,4 +1,6 @@
 # RON language support in Atom
+[![macOS Build Status](https://travis-ci.com/olvyko/language-ron.svg?branch=master)](https://travis-ci.org/olvyko/language-ron)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/f06ewadl2o9j3b74?svg=true)](https://ci.appveyor.com/project/olvyko/language-ron)
 
 Adds syntax highlighting and snippets to RON files in Atom.
 
