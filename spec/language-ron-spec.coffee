@@ -6,8 +6,8 @@ describe "Ron grammar", ->
       atom.packages.activatePackage("language-ron")
 
     runs ->
-      grammar = atom.syntax.grammarForScopeName("source.ron")
-
+      grammar = atom.grammar.grammarForScopeName("source.ron")
+      
   it "parses the grammar", ->
-    expect(grammar).toBeTruthy()
-    expect(grammar.scopeName).toBe "source.ron"
+    expect(grammar).toBeDefined()
+    expect(grammar.scopeName).toBe 'source.ron'
