@@ -102,7 +102,7 @@
   'char': {
     'begin': '\'',
     'end': '\'',
-    'name': 'char.quoted.single'
+    'name': 'string.quoted.single'
   },
   'string': {
     'begin': '\"',
