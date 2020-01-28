@@ -19,6 +19,7 @@
       { 'include': '#object-name' },
       { 'include': '#object' },
       { 'include': '#string' },
+      { 'include': '#char' },
       { 'include': '#tag-name' }
     ]
   },
