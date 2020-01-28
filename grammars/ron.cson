@@ -98,9 +98,14 @@
     'match': '(?x:         # turn on extended mode\n  -?         # an optional minus\n  (?:\n    0        # a zero\n    |        # ...or...\n    [1-9]    # a 1-9 character\n    \\d*      # followed by zero or more digits\n  )\n  (?:\n    (?:\n      \\.     # a period\n      \\d+    # followed by one or more digits\n    )?\n    (?:\n      [eE]   # an e character\n      [+-]?  # followed by an option +/-\n      \\d+    # followed by one or more digits\n    )?       # make exponent optional\n  )?         # make decimal portion optional\n)',
     'name': 'constant.numeric.ron'
   },
-  'string': {
+  'char': {
     'begin': '\'',
     'end': '\'',
+    'name': 'char.quoted.single'
+  },
+  'string': {
+    'begin': '\"',
+    'end': '\"',
     'name': 'string.quoted.double'
   },
   'value': {
@@ -112,6 +117,7 @@
       { 'include': '#line_comment' },
       { 'include': '#number' },
       { 'include': '#object' },
+      { 'include': '#char' },
       { 'include': '#string' }
     ]
   }
