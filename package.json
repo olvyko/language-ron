@@ -1,6 +1,6 @@
 {
   "name": "language-ron",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Atom language support for RON",
   "keywords": [
     "language",
